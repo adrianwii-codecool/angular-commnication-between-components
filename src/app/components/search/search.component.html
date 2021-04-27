@@ -1,0 +1,10 @@
+<div class="container navy-background">
+  <div class="mb-3">
+    <label for="search-bar" class="form-label">Search</label>
+    <input [(ngModel)]="searchString" type="text" class="form-control" id="search-bar" placeholder="{{ name }}">
+    <button class="btn btn-primary" (click)="sendSearchString()">SEARCH</button>
+  </div>
+
+
+  {{ searchString }}
+</div>
