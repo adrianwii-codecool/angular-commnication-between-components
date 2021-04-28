@@ -25,4 +25,8 @@ export class VideoService {
       tap(console.log)
     );
   }
+
+  getData(): Observable<any> {
+    return this.http.get<any>('https://www.mocky.io/v2/5185415ba171ea3a00704eed?mocky-delay=5000ms');
+  }
 }

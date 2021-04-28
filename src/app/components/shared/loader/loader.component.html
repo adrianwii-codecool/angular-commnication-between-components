@@ -1,0 +1,4 @@
+{{ isLoading | async }}
+<div *ngIf="(isLoading | async) !== false">
+  Wait for a second, we're loading data!
+</div>

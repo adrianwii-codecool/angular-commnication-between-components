@@ -6,13 +6,18 @@ import { AppComponent } from './app.component';
 import { VideoListComponent } from './components/video-list/video-list.component';
 import { SearchComponent } from './components/search/search.component';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {LoaderService} from './services/loader.service';
+import {LoaderInterceptor} from './interceptors/loader.interceptor';
+import {LoaderComponent} from './components/shared/loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VideoListComponent,
-    SearchComponent
+    SearchComponent,
+    LoaderComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +25,10 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    LoaderService,
+    {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

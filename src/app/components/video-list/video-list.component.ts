@@ -11,12 +11,14 @@ export class VideoListComponent implements OnInit {
   placeholder  = 'Search cryptocurrency';
   searchString = '';
   videos: Video[];
+  data: any;
 
   constructor(private videoService: VideoService) { }
 
   ngOnInit(): void {
-    this.videoService.getVideos().subscribe(videos => {
-      this.videos = videos;
+    this.videoService.getData().subscribe(data => {
+      console.log(data);
+      this.data = data;
     });
   }
 
